@@ -13,9 +13,9 @@ app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 app.use('/api', require('./routes'))
 
-app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')));
+app.get('*', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')));
 
 db.sync()
 	.then(db.seed)
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8888);

@@ -13,11 +13,11 @@ export default class Main extends Component{
 				<div>
 					<Navbar />
 					<Switch>
-						<Route exact path="/home" component={Home} />
+						<Route exact path="/" component={Home} />
 						<Route exact path="/students" component={Students} />
-						<Route exact path="/campuses" componenta={Campuses} />
+						<Route exact path="/campuses" component={Campuses} />
 					</Switch>
-					<div>Hi! you're on the landing page. click on students or campuses on the navbar to explore!</div>
+					
 				</div>
 			</Router>
 			)
