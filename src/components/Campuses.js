@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Jumbotron, Button } from 'react-bootstrap'
+import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap'
 
 
 function Campuses (props){
@@ -10,10 +10,21 @@ function Campuses (props){
 
 			{
 				props.campuses.map(campus => { return(
-					<Jumbotron>
-					    <h1>{campus.name}</h1>
-					    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-					    <p><Button bsStyle="primary">Learn more</Button></p>
+					<Jumbotron >
+						<Row>
+							<Col md={3} />
+							<Col md={6}> 
+								<h1 className = "vertical-center">{campus.name}</h1>
+							</Col>
+						</Row>
+
+					    <Row>
+					    	<Col md={3} />
+					    	<Col md={6}>
+						    	<p><Button bsStyle="primary">Learn more</Button></p>
+						    </Col>
+					    </Row>
+					    
 					</Jumbotron>
 				)})
 			}
@@ -24,7 +35,7 @@ function Campuses (props){
 }
 
 function mapStateToProps(state){
-	return{
+	return {
 		campuses: state.campuses
 	}
 }
