@@ -10,18 +10,17 @@ function Campuses (props){
 
 			{
 				props.campuses.map(campus => { return(
-					<Jumbotron >
+					<Jumbotron key={campus.name}>
 						<Row>
 							<Col md={3} />
 							<Col md={6}> 
 								<h1 className = "vertical-center">{campus.name}</h1>
 							</Col>
 						</Row>
-
 					    <Row>
 					    	<Col md={3} />
 					    	<Col md={6}>
-						    	<p><Button bsStyle="primary">Learn more</Button></p>
+						    	<p><Button bsStyle="primary">See Students</Button></p>
 						    </Col>
 					    </Row>
 					    
