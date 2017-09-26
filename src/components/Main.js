@@ -4,9 +4,14 @@ import Navbar from './Navbar'
 import Home from './Home'
 import Students from './Students'
 import Campuses from './Campuses'
-import store from '../store'
+import store, {fetchCampuses} from '../store'
 
 export default class Main extends Component{
+	componentDidMount(){
+		const campusesThunk = fetchCampuses();
+		store.dispatch(campusesThunk)
+	}
+
 	render(){
 		return(
 			<Router>
