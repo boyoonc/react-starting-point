@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
+import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 
 
 function Campuses (props){
@@ -20,7 +21,12 @@ function Campuses (props){
 					    <Row>
 					    	<Col md={3} />
 					    	<Col md={6}>
-						    	<p><Button bsStyle="primary">See Students</Button></p>
+						    	<p>
+						    	<LinkContainer to={`/campuses/${campus.id}`}>
+						    	<Button bsStyle="primary">
+						    	See Students</Button>
+						    	</LinkContainer>
+						    	</p>
 						    </Col>
 					    </Row>
 					    
