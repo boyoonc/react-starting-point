@@ -1,28 +1,58 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import Students from './Students';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import store, {fetchCampus} from '../store'
+import { Button, Grid, Row, Col } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-function SingleCampus(props){ //this name doesn't matter??
-	const {campusId} = props
-
+class SingleCampus extends Component{
 	
+	componentDidMount(){
+		const thisCampusId = parseInt(this.props.match.params.campusId)
+		const campusThunk = fetchCampus(thisCampusId)
+		store.dispatch(campusThunk)
+	}
+	render(){
+		const filtered_list = this.props.students.filter(student=>{
+			return(parseInt(student.campus.id) === parseInt(this.props.campusId))
+		})
+		return(
+		<div> 
+			<h1>{this.props.campus.name}</h1>
+				<Grid>
+				<Row>
+					<LinkContainer to={`/campuses/${this.props.campus.id}/addStudent`} >
+						<Button>AddStudent </Button>
+					</LinkContainer>	
+				</Row>
+				{filtered_list.map(student=> {
+					return(  
+						
+							<Row key={student.id}>
+								<h2 > {student.name} </h2> 
 
-	return(
-		<div>
-			<h1> CAMPUS NAME HERE </h1>
-			<div> {console.log(props.campuses)} </div>
-			<Students campusId = {props.campusId} />
+								<Button> Edit </Button>
+								<Button> Delete </Button>
+							</Row>
+
+
+						)
+				})}
+				</Grid>
 		</div>
 		)
+	}
+	
 }
 
 function mapStateToProps(state, ownProps){
 	return {
-		campusId: ownProps.match.params.campusId,
-		students: state.students,
-		campuses: state.campuses
+		campus : state.singleCampus,
+		campusId : ownProps.match.params.campusId,
+		students: state.students
 	}
+	
 }
 
 const container = connect(mapStateToProps)(SingleCampus)
+
 export default container;

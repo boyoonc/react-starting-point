@@ -22,9 +22,11 @@ function Campuses (props){
 					    	<Col md={3} />
 					    	<Col md={6}>
 						    	<p>
-						    	<LinkContainer to={`/campuses/${campus.id}`}>
-						    	<Button bsStyle="primary">
-						    	See Students</Button>
+						    	<LinkContainer to={`/campuses/${campus.id}`} key = {campus.id}>
+						    		<Button bsStyle="primary">See Students</Button>
+						    	</LinkContainer>
+						    	<LinkContainer to={`/campuses/${campus.id}`} key = {'delete' + campus.id}>
+						    		<Button bsStyle="danger">DeleteCampus edit link</Button>
 						    	</LinkContainer>
 						    	</p>
 						    </Col>

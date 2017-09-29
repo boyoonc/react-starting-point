@@ -3,15 +3,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 function Students (props){
-	console.log(props)
-	const filtered_list = props.students.filter(student =>{ 
-						console.log(student.campus.id)
-						console.log(props.campusId)
-						console.log(parseInt(student.campus.id) ===  parseInt(props.campusId))
-						return (
-						parseInt(student.campus.id) === parseInt(props.campusId)
-						)
-					})
+	
 	return(
 		<div>you're among peers!
 			<Grid>
@@ -29,11 +21,11 @@ function Students (props){
 				</Row>
 				{
 					
-					filtered_list.map(student => { return (
+					props.students.map(student => { return (
 						<Row key = {student.id}>
 							<Col md={1}/>
 							<Col md={3}>
-								<a href='#'> {student.name} </a>
+								<p> {student.name} </p>
 							</Col>
 							<Col md={3}>
 								<p> {student.email} </p>
