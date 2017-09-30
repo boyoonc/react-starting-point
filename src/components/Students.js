@@ -31,7 +31,7 @@ function Students (props){
 								<p> {student.email} </p>
 							</Col>
 							<Col md={3}>
-								<p> {student.campus.name}</p>
+								<p> {student.campusId}</p>
 							</Col>
 						</Row>
 

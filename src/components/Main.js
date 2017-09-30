@@ -26,7 +26,8 @@ export default class Main extends Component{
 						<Route exact path="/students" component={Students} />
 						<Route exact path="/campuses" component={Campuses} />
 						<Route exact path = "/campuses/:campusId" component={SingleCampus} />
-						<Route exact path = "/campuses/:campusId/addStudent" render={()=><NewStudent />} />
+						
+						<Route exact path = "/campuses/:campusId/addStudent" component={NewStudent} />
 
 					</Switch>
 					

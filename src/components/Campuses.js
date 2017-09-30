@@ -5,7 +5,6 @@ import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 
 
 function Campuses (props){
-	console.log(props)
 	return(
 		<div>you're on campus!
 

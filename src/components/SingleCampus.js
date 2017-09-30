@@ -13,7 +13,7 @@ class SingleCampus extends Component{
 	}
 	render(){
 		const filtered_list = this.props.students.filter(student=>{
-			return(parseInt(student.campus.id) === parseInt(this.props.campusId))
+			return(parseInt(student.campusId) === parseInt(this.props.campusId))
 		})
 		return(
 		<div> 
