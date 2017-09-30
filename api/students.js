@@ -40,7 +40,6 @@ router.put('/', (req, res, next)=>{
 		.then(updatedStudent => {
 			Student.findAll({include: [{model:Campus}]})
 				.then(allStudents => {
-				console.log('*******************')
 				res.send(allStudents)})
 		})
 		
