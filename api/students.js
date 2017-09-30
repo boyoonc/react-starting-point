@@ -11,25 +11,27 @@ router.get('/', (req, res, next)=>{
 		.then(students => {
 			res.send(students)
 		})
+		.catch(next)
 
-})
+});
 
 router.post('/', (req, res, next)=> {
 	return Student.create(req.body)
-		// .then(student => {
-		// 	res.send(student)
-		// })
 		.then(newStudent => newStudent.id)
 		.then(newStudentId => {
-			console.log('*******now that i think about it shouldnt this work anyway?')
-			console.log(newStudentId)
 			return Student.findAll({where: {id: newStudentId}, include: [{model:Campus}]})
 		})
 		.then(studentWithCampus => {
-			console.log(studentWithCampus)
 			res.send(studentWithCampus)
 		})
+		.catch(next)
+		
+});
 
-			
-			
+
+router.delete('/:studentId', (req, res, next)=> {
+	const studentId = parseInt(req.params.studentId)
+	return Student.destroy({where: {id: studentId}})
+		.then(()=> res.sendStatus(204))
+		.catch(next)
 })

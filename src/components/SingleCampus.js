@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import store, {fetchCampus} from '../store'
+import store, {fetchCampus, deleteStudent} from '../store'
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -31,7 +31,7 @@ class SingleCampus extends Component{
 								<h2 > {student.name} </h2> 
 
 								<Button> Edit </Button>
-								<Button> Delete </Button>
+								<Button onClick={()=>this.props.handleDeleteClick(student.id)}> Delete Student </Button>
 							</Row>
 
 
@@ -53,6 +53,15 @@ function mapStateToProps(state, ownProps){
 	
 }
 
-const container = connect(mapStateToProps)(SingleCampus)
+function mapDispatchToProps(dispatch){
+	return {
+		handleDeleteClick: function(studentId){
+
+			dispatch(deleteStudent(studentId))
+		}
+	}
+}
+
+const container = connect(mapStateToProps, mapDispatchToProps)(SingleCampus)
 
 export default container;
