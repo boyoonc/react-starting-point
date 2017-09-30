@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 function Students (props){
-	
+	console.log(props.campuses)
 	return(
 		<div>you're among peers!
 			<Grid>
@@ -31,7 +31,7 @@ function Students (props){
 								<p> {student.email} </p>
 							</Col>
 							<Col md={3}>
-								<p> {student.campusId}</p>
+								<p> {student.campus.name}</p>
 							</Col>
 						</Row>
 
@@ -44,7 +44,8 @@ function Students (props){
 
 function mapStateToProps(state){
 	return {
-		students: state.students
+		students: state.students,
+		campuses: state.campuses
 	}
 }
 

@@ -31,7 +31,8 @@ export function postStudent(student){
 		return axios.post('/api/students', student)
 			.then(res => res.data)
 			.then(student => {
-				const action = getStudent(student)
+				console.log(student)
+				const action = getStudent(student[0])
 				dispatch(action)
 			})
 	}
@@ -43,6 +44,7 @@ function studentsReducer(state = [], action){
 		case GET_STUDENTS:
 			return action.students
 		case GET_STUDENT:
+			console.log([...state, action.student])
 			return [...state, action.student]
 		default:
 			return state
