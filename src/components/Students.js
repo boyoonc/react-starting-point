@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 function Students (props){
-	console.log(props.campuses)
 	return(
 		<div>you're among peers!
 			<Grid>
@@ -22,7 +21,7 @@ function Students (props){
 				{
 					
 					props.students.map(student => { return (
-						<Row key = {student.id}>
+						<Row key = {'allstudents' + student.id}>
 							<Col md={1}/>
 							<Col md={3}>
 								<p> {student.name} </p>

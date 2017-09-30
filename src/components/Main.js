@@ -6,6 +6,7 @@ import Students from './Students';
 import Campuses from './Campuses';
 import SingleCampus from './SingleCampus';
 import NewStudent from './NewStudent'
+import EditStudent from './Student'
 import store, {fetchCampuses, fetchStudents} from '../store';
 
 export default class Main extends Component{
@@ -26,9 +27,9 @@ export default class Main extends Component{
 						<Route exact path="/students" component={Students} />
 						<Route exact path="/campuses" component={Campuses} />
 						<Route exact path = "/campuses/:campusId" component={SingleCampus} />
-						
 						<Route exact path = "/campuses/:campusId/addStudent" component={NewStudent} />
-
+						<Route exact path = "/:studentId/editStudent" component={EditStudent} />
+						
 					</Switch>
 					
 				</div>

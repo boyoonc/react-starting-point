@@ -21,16 +21,18 @@ class SingleCampus extends Component{
 				<Grid>
 				<Row>
 					<LinkContainer to={`/campuses/${this.props.campus.id}/addStudent`} >
-						<Button>AddStudent </Button>
+						<Button> Add Student </Button>
 					</LinkContainer>	
 				</Row>
 				{filtered_list.map(student=> {
 					return(  
 						
-							<Row key={student.id}>
+							<Row key={'students'+student.id}>
 								<h2 > {student.name} </h2> 
 
-								<Button> Edit </Button>
+								<LinkContainer to={`/${student.id}/editStudent`} >
+									<Button> Edit Student </Button>
+								</LinkContainer>	
 								<Button onClick={()=>this.props.handleDeleteClick(student.id)}> Delete Student </Button>
 							</Row>
 
