@@ -43,8 +43,7 @@ function Students (props){
 
 function mapStateToProps(state){
 	return {
-		students: state.students,
-		campuses: state.campuses
+		students: state.students
 	}
 }
 
